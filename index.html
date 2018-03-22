@@ -135,6 +135,107 @@
 	   
 	<div class="article-header">
 	    
+	     <a class="article-title"  href="/2018/03/22/component/">无状态组件和有状态组件</a>  
+	       
+		 
+
+		 <time>2018-03-22 </time>    
+	</div>
+
+
+    <div class="post-content article-excerpt">	
+	
+  	
+
+	  
+
+	  	<h3 id="无状态组件"><a href="#无状态组件" class="headerlink" title="无状态组件"></a>无状态组件</h3><ul>
+<li><p>它只负责根据传入的props来展示，不涉及state状态的操作</p>
+</li>
+<li><p>它通过函数式或者ES6的箭头函数的形式创建，并且该组件是无state状态的。无状态函数式组件形式上 表现为只带有一个render方法的组件类。例如：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> A(props) &#123;</span><br><span class="line">  <span class="built_in">return</span> &lt;div&gt;Hello &#123;props.name&#125;&lt;/div&gt;</span><br><span class="line">&#125;</span><br><span class="line">ReactDom.render(&lt;A name=<span class="string">"sara"</span> /&gt;, mountNode)</span><br></pre></td></tr></table></figure>
+<h3 id="无状态组件特点"><a href="#无状态组件特点" class="headerlink" title="无状态组件特点"></a>无状态组件特点</h3><ul>
+<li><p>组件不会被实例化，整体渲染性能得到提升。（不需分配多余内存）</p>
+</li>
+<li><p>组件不访问this对象。 this.ref、this.state均不能访问。</p>
+</li>
+<li><p>组件无法访问生命周期的方法。（无状态组件是不需要组件生命周期管理和状态管理的，所以它也不参与组件的各个生命周期管理）</p>
+</li>
+<li><p>无状态组件只能访问输入的props，同样的props会得到同样的渲染结果，不会有副作用。</p>
+</li>
+</ul>
+<h3 id="有状态组件"><a href="#有状态组件" class="headerlink" title="有状态组件"></a>有状态组件</h3><ul>
+<li><p>React.createClass 和  React.Component 都是创建有状态组件的。前者会被后者所取代。</p>
+</li>
+<li><p>首先前者自绑定函数方法this，导致不必要的性能开销。 后者是以ES6的形式创建组件，不会自动绑定this</p>
+</li>
+</ul>
+<h5 id="React-Component有三种手动绑定this的方法"><a href="#React-Component有三种手动绑定this的方法" class="headerlink" title="React.Component有三种手动绑定this的方法"></a>React.Component有三种手动绑定this的方法</h5><ul>
+<li>在构造函数中绑定</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor(props) &#123;</span><br><span class="line">  super(props);</span><br><span class="line">  this.handleClick=this.handleClick.bind(this);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在调用时使用method.bind(this)来完成</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div onClick=&#123;this.handleClick.bind(this)&#125;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用箭头函数绑定</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div onClick=&#123;() =&gt; this.handleClick()&#125;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+ 
+
+	    
+</div>
+
+
+
+
+	<div class="article-info">
+				
+
+				<span class="post-meta">		
+				<span class="iconfont icon-category"></span>
+				<a class="category-link" href="/categories/react/">react</a>
+				</span>
+		
+			
+
+		
+				
+				<span class="post-meta">
+				<span class="iconfont icon-tag"></span>
+				<a class="tag-link" href="/tags/react/">react</a>
+				</span>			
+			
+
+
+		
+
+		
+		
+
+		<span class="post-words"><span class="iconfont icon-words"></span>
+		870
+		</span>
+
+				
+	</div>
+		
+
+		
+    <a class="article-readmore" href="/2018/03/22/component/">Continue</a> 
+    	
+</article>     
+     	
+      	  	
+
+  		
+    	<article class="article">		
+	   
+	<div class="article-header">
+	    
 	     <a class="article-title"  href="/2018/03/17/compare/">JavaScript中的==和===的比较</a>  
 	       
 		 
