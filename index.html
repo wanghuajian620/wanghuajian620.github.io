@@ -135,6 +135,89 @@
 	   
 	<div class="article-header">
 	    
+	     <a class="article-title"  href="/2018/03/26/app/">ReactNative App</a>  
+	       
+		 
+
+		 <time>2018-03-26 </time>    
+	</div>
+
+
+    <div class="post-content article-excerpt">	
+	
+  	
+
+	  
+
+	  	<h3 id="在架构好的框架上APP开始流程"><a href="#在架构好的框架上APP开始流程" class="headerlink" title="在架构好的框架上APP开始流程"></a>在架构好的框架上APP开始流程</h3><ul>
+<li>从app中的index文件开始入手，引入自己的项目名称，注册项目。举个例子，比如你的项目名称是<code>xiaorizi</code>, 那你要这么开始</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; AppRegistry &#125; from &apos;react-native&apos;;</span><br><span class="line">import xiaorizi from &apos;./app/index&apos;;</span><br><span class="line"></span><br><span class="line">AppReistry.registerComponent(&apos;xiaorizi&apos;, () =&gt; xiaorizi)</span><br></pre></td></tr></table></figure>
+<h3 id="StackNavigator栈导航"><a href="#StackNavigator栈导航" class="headerlink" title="StackNavigator栈导航"></a><code>StackNavigator</code>栈导航</h3><ul>
+<li><p>先在上面引入第一页也就是所谓的tab导航</p>
+</li>
+<li><p>然后在引入内容页</p>
+</li>
+<li><p>最后引入内容上的详情页</p>
+</li>
+</ul>
+<h3 id="底部tab导航"><a href="#底部tab导航" class="headerlink" title="底部tab导航"></a>底部tab导航</h3><ul>
+<li>使用<code>TabNavigator</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123; TabNavigator &#125; from &apos;react-navigation&apos;;</span><br><span class="line"></span><br><span class="line">import Home from &apos;./pages/Home&apos;;</span><br><span class="line">import Video from &apos;./pages/Video&apos;;</span><br><span class="line"></span><br><span class="line">const TabBottom = TabNavigator(&#123;</span><br><span class="line">  Home: &#123; screen: Home &#125;,</span><br><span class="line">  Video: &#123; screen: Video &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const Navigations = &#123;</span><br><span class="line">  Main: &#123; screen: TabBottom &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Navigations;</span><br></pre></td></tr></table></figure>
+<p>详情可参考<a href="https://reactnavigation.org/docs/tab-based-navigation.html" target="_blank" rel="noopener">react-navigation</a></p>
+ 
+
+	    
+</div>
+
+
+
+
+	<div class="article-info">
+				
+
+				<span class="post-meta">		
+				<span class="iconfont icon-category"></span>
+				<a class="category-link" href="/categories/reactnative/">reactnative</a>
+				</span>
+		
+			
+
+		
+				
+				<span class="post-meta">
+				<span class="iconfont icon-tag"></span>
+				<a class="tag-link" href="/tags/reactnative/">reactnative</a>
+				</span>			
+			
+
+
+		
+
+		
+		
+
+		<span class="post-words"><span class="iconfont icon-words"></span>
+		715
+		</span>
+
+				
+	</div>
+		
+
+		
+    <a class="article-readmore" href="/2018/03/26/app/">Continue</a> 
+    	
+</article>     
+     	
+      	  	
+
+  		
+    	<article class="article">		
+	   
+	<div class="article-header">
+	    
 	     <a class="article-title"  href="/2018/03/25/basis/">JavaScript面试基础</a>  
 	       
 		 
