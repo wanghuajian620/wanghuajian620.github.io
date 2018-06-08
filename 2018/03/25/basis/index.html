@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>JavaScript面试基础 | Hexo</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="基本数据类型和堆栈数据结构
+基本数据类型： undefined、Null、Boolean、Number、String
+
+引用类型：对象、数组、函数
+
+堆栈数据结构是一种支持后进先出的集合，即后被插入的数据先被取出。此外 js 数组中提供了以下几种方法可以让我们很方便实现堆栈：
+
+
+12341 shift: 从数组中把第一个元素删除，并返回这个元素的值2 unshift：在数组的开头添加一个元素或更">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JavaScript面试基础 | Hexo">
+    <meta name="twitter:description" content="基本数据类型和堆栈数据结构
+基本数据类型： undefined、Null、Boolean、Number、String
+
+引用类型：对象、数组、函数
+
+堆栈数据结构是一种支持后进先出的集合，即后被插入的数据先被取出。此外 js 数组中提供了以下几种方法可以让我们很方便实现堆栈：
+
+
+12341 shift: 从数组中把第一个元素删除，并返回这个元素的值2 unshift：在数组的开头添加一个元素或更">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaScript面试基础 | Hexo">
+    <meta property="og:description" content="基本数据类型和堆栈数据结构
+基本数据类型： undefined、Null、Boolean、Number、String
+
+引用类型：对象、数组、函数
+
+堆栈数据结构是一种支持后进先出的集合，即后被插入的数据先被取出。此外 js 数组中提供了以下几种方法可以让我们很方便实现堆栈：
+
+
+12341 shift: 从数组中把第一个元素删除，并返回这个元素的值2 unshift：在数组的开头添加一个元素或更">
+
+    
+    <meta name="author" content="Wang HuaJian">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="Hexo" href="/atom.xml">
+    
+
+    <link rel="canonical" href="https://wanghuajian620.github.io/2018/03/25/basis/"/>
+
+    
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 Hexo 的主页"><img src="/images/logo2.jpg" width="80" alt="Hexo logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Hexo">Hexo</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description"></p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/wanghuajian620" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  <li class="navigation__item">
+    <a href="https://twitter.com/lenbo_" title="上Twitter找我" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-03-24T16:00:00.000Z" class="post-list__meta--date date">2018-03-25</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/javascript/">javascript</a>
+</span>
+    </div>
+    <h1 class="post-title">JavaScript面试基础</h1>
+  </header>
+
+  <section class="post">
+    <h3 id="基本数据类型和堆栈数据结构"><a href="#基本数据类型和堆栈数据结构" class="headerlink" title="基本数据类型和堆栈数据结构"></a>基本数据类型和堆栈数据结构</h3><ul>
+<li><p>基本数据类型： undefined、Null、Boolean、Number、String</p>
+</li>
+<li><p>引用类型：对象、数组、函数</p>
+</li>
+<li><p>堆栈数据结构是一种支持后进先出的集合，即后被插入的数据先被取出。此外 js 数组中提供了以下几种方法可以让我们很方便实现堆栈：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 <span class="built_in">shift</span>: 从数组中把第一个元素删除，并返回这个元素的值</span><br><span class="line">2 unshift：在数组的开头添加一个元素或更多的元素，并返回新的长度</span><br><span class="line">3 push：在数组的中末尾添加元素，并返回新的长度</span><br><span class="line">4 pop：从数组中把最后一个元素删除，并返回这个元素的值</span><br></pre></td></tr></table></figure>
+<h3 id="判断数据类型"><a href="#判断数据类型" class="headerlink" title="判断数据类型"></a>判断数据类型</h3><ul>
+<li><p>typeof返回的类型都是字符串形式，可以判断 function 的类型；在判断除 Object 类型的对象时比较方便。</p>
+</li>
+<li><p>判断已知对象类型的方法： instanceof，后面一定要是对象类型，并且大小写不能错，该方法适合一些条件选择或分支。</p>
+</li>
+</ul>
+<h3 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h3><ul>
+<li><p>回调函数，优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。</p>
+</li>
+<li><p>时间监听，可以绑定多个事件，每个事件可以指定多个回调函数，而且可以“去耦合”（Decoupling），有利于实现模块化。缺点是整个程序都要变成事件驱动型，运行流程会变得很不清晰。</p>
+</li>
+<li><p>发布/订阅，性质与“事件监听”类似，但是明显优于后者。</p>
+</li>
+<li><p>Promises对象，为异步编程提供统一接口。每一个异步任务返回一个 Promise 对象，该对象有一个then方法，允许指定回调函数。</p>
+</li>
+</ul>
+<h3 id="如何使用storage-对js文件进行缓存"><a href="#如何使用storage-对js文件进行缓存" class="headerlink" title="如何使用storage 对js文件进行缓存"></a>如何使用storage 对js文件进行缓存</h3><ul>
+<li>由于sessionStorage - 针对一个 session 的数据存储，所以我们一般利用 localStorage 储存 js 文件，只有在第一次访问该页面的时候加载 js 文件，以后在访问的时候加载本地 localStorage 执行</li>
+</ul>
+<h3 id="ajax-和-jsonp的区别"><a href="#ajax-和-jsonp的区别" class="headerlink" title="ajax 和 jsonp的区别"></a>ajax 和 jsonp的区别</h3><ul>
+<li><p>相同点：都是请求一个url</p>
+</li>
+<li><p>不同点：ajax 的核心是通过 xmlHttpRequest 获取内容 jsonp 的核心则是动态添加<code>&lt;script&gt;</code>标签来调用服务器 提供的 js 脚本。</p>
+</li>
+</ul>
+<h3 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h3><ul>
+<li>JavaScript 通过XMLHttpRequest(XHR)来执行异步请求，这个方式已经存在了很长一段时间。虽说它很有用，但它不是最佳 API。它在设计上不符合职责分离原则，将输入、输出和用事件来跟踪的状态混杂在一个对象里。而且，基于事件的模型与最近 JavaScript 流行的 Promise 以及基于生成器的异步编程模型不太搭。它引入一个实用的函数fetch()用来简洁捕捉从网络上检索一个资源的意图。</li>
+<li>更多内容 请查看 <a href="https://www.w3ctech.com/topic/854" target="_blank" rel="noopener">fetch</a></li>
+</ul>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><ul>
+<li><img src="/images/proto.png" alt="img"></li>
+</ul>
+
+  </section>
+
+</article>
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2018 - 本站由 <a href="/">@Longbo Ma</a> 创建,
+        使用<a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>主题,
+        修改自<a href="http://github.com/onevcat/vno" target="_blank">Vno</a>
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+     
+</body>
+</html>
