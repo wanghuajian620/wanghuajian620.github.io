@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>异步编程对 JS 的重要性 | Hexo</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="一、何为异步1.所谓异步，简单来说就是一个任务分成两段，先执行第一段，然后转而执行其他的任务，等做好了准备（即第一段执行完成了），再回头执行第二段。这种不连续的执行即为异步。2.同步就是第一段任务即使不完成也不干别的，一直等到第一段任务完成，再执行第二段。连续执行的过程中是不允许被插入其他任务的。二、回调函数JavaScript 语言对异步编程的实现就是回调函数。所谓的回调函数就是把任务的第二段单">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="异步编程对 JS 的重要性 | Hexo">
+    <meta name="twitter:description" content="一、何为异步1.所谓异步，简单来说就是一个任务分成两段，先执行第一段，然后转而执行其他的任务，等做好了准备（即第一段执行完成了），再回头执行第二段。这种不连续的执行即为异步。2.同步就是第一段任务即使不完成也不干别的，一直等到第一段任务完成，再执行第二段。连续执行的过程中是不允许被插入其他任务的。二、回调函数JavaScript 语言对异步编程的实现就是回调函数。所谓的回调函数就是把任务的第二段单">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="异步编程对 JS 的重要性 | Hexo">
+    <meta property="og:description" content="一、何为异步1.所谓异步，简单来说就是一个任务分成两段，先执行第一段，然后转而执行其他的任务，等做好了准备（即第一段执行完成了），再回头执行第二段。这种不连续的执行即为异步。2.同步就是第一段任务即使不完成也不干别的，一直等到第一段任务完成，再执行第二段。连续执行的过程中是不允许被插入其他任务的。二、回调函数JavaScript 语言对异步编程的实现就是回调函数。所谓的回调函数就是把任务的第二段单">
+
+    
+    <meta name="author" content="Wang HuaJian">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="Hexo" href="/atom.xml">
+    
+
+    <link rel="canonical" href="https://wanghuajian620.github.io/2018/05/27/async/"/>
+
+    
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 Hexo 的主页"><img src="/images/logo2.jpg" width="80" alt="Hexo logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Hexo">Hexo</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description"></p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/wanghuajian620" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  <li class="navigation__item">
+    <a href="https://twitter.com/lenbo_" title="上Twitter找我" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-05-27T07:46:16.572Z" class="post-list__meta--date date">2018-05-27</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/js、ES6/">js、ES6</a>
+</span>
+    </div>
+    <h1 class="post-title">异步编程对 JS 的重要性</h1>
+  </header>
+
+  <section class="post">
+    <h3 id="一、何为异步"><a href="#一、何为异步" class="headerlink" title="一、何为异步"></a>一、何为异步</h3><h5 id="1-所谓异步，简单来说就是一个任务分成两段，先执行第一段，然后转而执行其他的任务，等做好了准备（即第一段执行完成了），再回头执行第二段。这种不连续的执行即为异步。"><a href="#1-所谓异步，简单来说就是一个任务分成两段，先执行第一段，然后转而执行其他的任务，等做好了准备（即第一段执行完成了），再回头执行第二段。这种不连续的执行即为异步。" class="headerlink" title="1.所谓异步，简单来说就是一个任务分成两段，先执行第一段，然后转而执行其他的任务，等做好了准备（即第一段执行完成了），再回头执行第二段。这种不连续的执行即为异步。"></a>1.所谓异步，简单来说就是一个任务分成两段，先执行第一段，然后转而执行其他的任务，等做好了准备（即第一段执行完成了），再回头执行第二段。这种不连续的执行即为异步。</h5><h5 id="2-同步就是第一段任务即使不完成也不干别的，一直等到第一段任务完成，再执行第二段。连续执行的过程中是不允许被插入其他任务的。"><a href="#2-同步就是第一段任务即使不完成也不干别的，一直等到第一段任务完成，再执行第二段。连续执行的过程中是不允许被插入其他任务的。" class="headerlink" title="2.同步就是第一段任务即使不完成也不干别的，一直等到第一段任务完成，再执行第二段。连续执行的过程中是不允许被插入其他任务的。"></a>2.同步就是第一段任务即使不完成也不干别的，一直等到第一段任务完成，再执行第二段。连续执行的过程中是不允许被插入其他任务的。</h5><h3 id="二、回调函数"><a href="#二、回调函数" class="headerlink" title="二、回调函数"></a>二、回调函数</h3><h5 id="JavaScript-语言对异步编程的实现就是回调函数。所谓的回调函数就是把任务的第二段单独写在一个函数里。下面我们用-读取文件进行处理-举例。"><a href="#JavaScript-语言对异步编程的实现就是回调函数。所谓的回调函数就是把任务的第二段单独写在一个函数里。下面我们用-读取文件进行处理-举例。" class="headerlink" title="JavaScript 语言对异步编程的实现就是回调函数。所谓的回调函数就是把任务的第二段单独写在一个函数里。下面我们用 读取文件进行处理 举例。"></a>JavaScript 语言对异步编程的实现就是回调函数。所谓的回调函数就是把任务的第二段单独写在一个函数里。下面我们用 <strong>读取文件进行处理</strong> 举例。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(&apos;./ab/pass&apos;, function(err, data) &#123;</span><br><span class="line">  if (err) throw err;</span><br><span class="line">  console.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="上面代码中，readFile函数的的第二个参数，就是回调函数。也就是任务的第二段。等到操作系统返回了-ab-pass-这个文件以后，回调函数才会执行。"><a href="#上面代码中，readFile函数的的第二个参数，就是回调函数。也就是任务的第二段。等到操作系统返回了-ab-pass-这个文件以后，回调函数才会执行。" class="headerlink" title="上面代码中，readFile函数的的第二个参数，就是回调函数。也就是任务的第二段。等到操作系统返回了./ab/pass 这个文件以后，回调函数才会执行。"></a>上面代码中，readFile函数的的第二个参数，就是回调函数。也就是任务的第二段。等到操作系统返回了./ab/pass 这个文件以后，回调函数才会执行。</h5><h5 id="一个有趣的问题是，为什么-Node-js-约定，回调函数的第一个参数，必须是错误对象err（如果没有错误，该参数就是-null）？原因是执行分成两段，在这两段之间抛出的错误，程序无法捕捉，只能当作参数，传入第二段。"><a href="#一个有趣的问题是，为什么-Node-js-约定，回调函数的第一个参数，必须是错误对象err（如果没有错误，该参数就是-null）？原因是执行分成两段，在这两段之间抛出的错误，程序无法捕捉，只能当作参数，传入第二段。" class="headerlink" title="一个有趣的问题是，为什么 Node.js 约定，回调函数的第一个参数，必须是错误对象err（如果没有错误，该参数就是 null）？原因是执行分成两段，在这两段之间抛出的错误，程序无法捕捉，只能当作参数，传入第二段。"></a>一个有趣的问题是，为什么 Node.js 约定，回调函数的第一个参数，必须是错误对象err（如果没有错误，该参数就是 null）？原因是执行分成两段，在这两段之间抛出的错误，程序无法捕捉，只能当作参数，传入第二段。</h5><h3 id="三、Promise"><a href="#三、Promise" class="headerlink" title="三、Promise"></a>三、Promise</h3><h5 id="回调函数本身并没有问题，它的问题出现在多个回调函数嵌套。假定读取A文件之后，再读取B文件，代码如下。"><a href="#回调函数本身并没有问题，它的问题出现在多个回调函数嵌套。假定读取A文件之后，再读取B文件，代码如下。" class="headerlink" title="回调函数本身并没有问题，它的问题出现在多个回调函数嵌套。假定读取A文件之后，再读取B文件，代码如下。"></a>回调函数本身并没有问题，它的问题出现在多个回调函数嵌套。假定读取A文件之后，再读取B文件，代码如下。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(fileA, function (err, data) &#123;</span><br><span class="line">  fs.readFile(fileB, function (err, data) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="不难想象，如果依次读取多个文件，就会出现多重嵌套。代码不是纵向发展，而是横向发展，很快就会乱成一团，无法管理。这种情况就称为”回调函数噩梦”"><a href="#不难想象，如果依次读取多个文件，就会出现多重嵌套。代码不是纵向发展，而是横向发展，很快就会乱成一团，无法管理。这种情况就称为”回调函数噩梦”" class="headerlink" title="不难想象，如果依次读取多个文件，就会出现多重嵌套。代码不是纵向发展，而是横向发展，很快就会乱成一团，无法管理。这种情况就称为”回调函数噩梦”"></a>不难想象，如果依次读取多个文件，就会出现多重嵌套。代码不是纵向发展，而是横向发展，很快就会乱成一团，无法管理。这种情况就称为”回调函数噩梦”</h5><h5 id="Promise-就是为了解决这个问题而提出的。它不是新的语法功能，而是一种新的写法，允许将回调函数的横向加载，改成纵向加载。采用Promise，连续读取多个文件，写法如下。"><a href="#Promise-就是为了解决这个问题而提出的。它不是新的语法功能，而是一种新的写法，允许将回调函数的横向加载，改成纵向加载。采用Promise，连续读取多个文件，写法如下。" class="headerlink" title="Promise 就是为了解决这个问题而提出的。它不是新的语法功能，而是一种新的写法，允许将回调函数的横向加载，改成纵向加载。采用Promise，连续读取多个文件，写法如下。"></a>Promise 就是为了解决这个问题而提出的。它不是新的语法功能，而是一种新的写法，允许将回调函数的横向加载，改成纵向加载。采用Promise，连续读取多个文件，写法如下。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var readFile = require(&apos;fs-readfile-promise&apos;);</span><br><span class="line"></span><br><span class="line">readFile(fileA)</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">  console.log(data.toString());</span><br><span class="line">&#125;)</span><br><span class="line">.then(function()&#123;</span><br><span class="line">  return readFile(fileB);</span><br><span class="line">&#125;)</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">  console.log(data.toString());</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function(err) &#123;</span><br><span class="line">  console.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="Promise-提供-then-方法加载回调函数，catch-方法捕捉执行过程中抛出的错误。但是Promise-的最大问题是代码冗余，原来的任务被Promise-包装了一下，不管什么操作，一眼看去都是一堆-then，原来的语义变得很不清楚。"><a href="#Promise-提供-then-方法加载回调函数，catch-方法捕捉执行过程中抛出的错误。但是Promise-的最大问题是代码冗余，原来的任务被Promise-包装了一下，不管什么操作，一眼看去都是一堆-then，原来的语义变得很不清楚。" class="headerlink" title="Promise 提供 then 方法加载回调函数，catch 方法捕捉执行过程中抛出的错误。但是Promise 的最大问题是代码冗余，原来的任务被Promise 包装了一下，不管什么操作，一眼看去都是一堆 then，原来的语义变得很不清楚。"></a>Promise 提供 then 方法加载回调函数，catch 方法捕捉执行过程中抛出的错误。但是Promise 的最大问题是代码冗余，原来的任务被Promise 包装了一下，不管什么操作，一眼看去都是一堆 then，原来的语义变得很不清楚。</h5><h3 id="Generator函数的概念"><a href="#Generator函数的概念" class="headerlink" title="Generator函数的概念"></a>Generator函数的概念</h3><h5 id="Generator-函数是协程在-ES6-的实现，最大特点就是可以交出函数的执行权（即暂停执行）。"><a href="#Generator-函数是协程在-ES6-的实现，最大特点就是可以交出函数的执行权（即暂停执行）。" class="headerlink" title="Generator 函数是协程在 ES6 的实现，最大特点就是可以交出函数的执行权（即暂停执行）。"></a>Generator 函数是协程在 ES6 的实现，最大特点就是可以交出函数的执行权（即暂停执行）。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function* gen(x)&#123;</span><br><span class="line">  var y = yield x + 2;</span><br><span class="line">  return y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="上面代码就是一个-Generator-函数。它不同于普通函数，是可以暂停执行的，所以函数名之前要加星号，以示区别。"><a href="#上面代码就是一个-Generator-函数。它不同于普通函数，是可以暂停执行的，所以函数名之前要加星号，以示区别。" class="headerlink" title="上面代码就是一个 Generator 函数。它不同于普通函数，是可以暂停执行的，所以函数名之前要加星号，以示区别。"></a>上面代码就是一个 Generator 函数。它不同于普通函数，是可以暂停执行的，所以函数名之前要加星号，以示区别。</h5><h5 id="整个-Generator-函数就是一个封装的异步任务，或者说是异步任务的容器。异步操作需要暂停的地方，都用-yield-语句注明。Generator-函数的执行方法如下。"><a href="#整个-Generator-函数就是一个封装的异步任务，或者说是异步任务的容器。异步操作需要暂停的地方，都用-yield-语句注明。Generator-函数的执行方法如下。" class="headerlink" title="整个 Generator 函数就是一个封装的异步任务，或者说是异步任务的容器。异步操作需要暂停的地方，都用 yield 语句注明。Generator 函数的执行方法如下。"></a>整个 Generator 函数就是一个封装的异步任务，或者说是异步任务的容器。异步操作需要暂停的地方，都用 yield 语句注明。Generator 函数的执行方法如下。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var g = gen(1);</span><br><span class="line">g.next() // &#123; value: 3, done: false &#125;</span><br><span class="line">g.next() // &#123; value: undefined, done: true &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="上面代码中，调用-Generator-函数，会返回一个内部指针（即遍历器-）g-。这是-Generator-函数不同于普通函数的另一个地方，即执行它不会返回结果，返回的是指针对象。调用指针-g-的-next-方法，会移动内部指针（即执行异步任务的第一段），指向第一个遇到的-yield-语句，上例是执行到-x-2-为止。"><a href="#上面代码中，调用-Generator-函数，会返回一个内部指针（即遍历器-）g-。这是-Generator-函数不同于普通函数的另一个地方，即执行它不会返回结果，返回的是指针对象。调用指针-g-的-next-方法，会移动内部指针（即执行异步任务的第一段），指向第一个遇到的-yield-语句，上例是执行到-x-2-为止。" class="headerlink" title="上面代码中，调用 Generator 函数，会返回一个内部指针（即遍历器 ）g 。这是 Generator 函数不同于普通函数的另一个地方，即执行它不会返回结果，返回的是指针对象。调用指针 g 的 next 方法，会移动内部指针（即执行异步任务的第一段），指向第一个遇到的 yield 语句，上例是执行到 x + 2 为止。"></a>上面代码中，调用 Generator 函数，会返回一个内部指针（即遍历器 ）g 。这是 Generator 函数不同于普通函数的另一个地方，即执行它不会返回结果，返回的是指针对象。调用指针 g 的 next 方法，会移动内部指针（即执行异步任务的第一段），指向第一个遇到的 yield 语句，上例是执行到 x + 2 为止。</h5><h5 id="换言之，next-方法的作用是分阶段执行-Generator-函数。每次调用-next-方法，会返回一个对象，表示当前阶段的信息（-value-属性和-done-属性）。value-属性是-yield-语句后面表达式的值，表示当前阶段的值；done-属性是一个布尔值，表示-Generator-函数是否执行完毕，即是否还有下一个阶段"><a href="#换言之，next-方法的作用是分阶段执行-Generator-函数。每次调用-next-方法，会返回一个对象，表示当前阶段的信息（-value-属性和-done-属性）。value-属性是-yield-语句后面表达式的值，表示当前阶段的值；done-属性是一个布尔值，表示-Generator-函数是否执行完毕，即是否还有下一个阶段" class="headerlink" title="换言之，next 方法的作用是分阶段执行 Generator 函数。每次调用 next 方法，会返回一个对象，表示当前阶段的信息（ value 属性和 done 属性）。value 属性是 yield 语句后面表达式的值，表示当前阶段的值；done 属性是一个布尔值，表示 Generator 函数是否执行完毕，即是否还有下一个阶段"></a>换言之，next 方法的作用是分阶段执行 Generator 函数。每次调用 next 方法，会返回一个对象，表示当前阶段的信息（ value 属性和 done 属性）。value 属性是 yield 语句后面表达式的值，表示当前阶段的值；done 属性是一个布尔值，表示 Generator 函数是否执行完毕，即是否还有下一个阶段</h5><h3 id="Generator-函数的数据交换和错误处理"><a href="#Generator-函数的数据交换和错误处理" class="headerlink" title="Generator 函数的数据交换和错误处理"></a>Generator 函数的数据交换和错误处理</h3><h5 id="Generator-函数可以暂停执行和恢复执行，这是它能封装异步任务的根本原因。除此之外，它还有两个特性，使它可以作为异步编程的完整解决方案：函数体内外的数据交换和错误处理机制。"><a href="#Generator-函数可以暂停执行和恢复执行，这是它能封装异步任务的根本原因。除此之外，它还有两个特性，使它可以作为异步编程的完整解决方案：函数体内外的数据交换和错误处理机制。" class="headerlink" title="Generator 函数可以暂停执行和恢复执行，这是它能封装异步任务的根本原因。除此之外，它还有两个特性，使它可以作为异步编程的完整解决方案：函数体内外的数据交换和错误处理机制。"></a>Generator 函数可以暂停执行和恢复执行，这是它能封装异步任务的根本原因。除此之外，它还有两个特性，使它可以作为异步编程的完整解决方案：函数体内外的数据交换和错误处理机制。</h5><h5 id="next-方法返回值的-value-属性，是-Generator-函数向外输出数据；next-方法还可以接受参数，这是向-Generator-函数体内输入数据。"><a href="#next-方法返回值的-value-属性，是-Generator-函数向外输出数据；next-方法还可以接受参数，这是向-Generator-函数体内输入数据。" class="headerlink" title="next 方法返回值的 value 属性，是 Generator 函数向外输出数据；next 方法还可以接受参数，这是向 Generator 函数体内输入数据。"></a>next 方法返回值的 value 属性，是 Generator 函数向外输出数据；next 方法还可以接受参数，这是向 Generator 函数体内输入数据。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function* gen(x)&#123;</span><br><span class="line">  var y = yield x + 2;</span><br><span class="line">  return y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var g = gen(1);</span><br><span class="line">g.next() // &#123; value: 3, done: false &#125;</span><br><span class="line">g.next(2) // &#123; value: 2, done: true &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="上面代码中，第一个-next-方法的-value-属性，返回表达式-x-2-的值（3）。第二个-next-方法带有参数2，这个参数可以传入-Generator-函数，作为上个阶段异步任务的返回结果，被函数体内的变量-y-接收。因此，这一步的-value-属性，返回的就是2（变量-y-的值）。"><a href="#上面代码中，第一个-next-方法的-value-属性，返回表达式-x-2-的值（3）。第二个-next-方法带有参数2，这个参数可以传入-Generator-函数，作为上个阶段异步任务的返回结果，被函数体内的变量-y-接收。因此，这一步的-value-属性，返回的就是2（变量-y-的值）。" class="headerlink" title="上面代码中，第一个 next 方法的 value 属性，返回表达式 x + 2 的值（3）。第二个 next 方法带有参数2，这个参数可以传入 Generator 函数，作为上个阶段异步任务的返回结果，被函数体内的变量 y 接收。因此，这一步的 value 属性，返回的就是2（变量 y 的值）。"></a>上面代码中，第一个 next 方法的 value 属性，返回表达式 x + 2 的值（3）。第二个 next 方法带有参数2，这个参数可以传入 Generator 函数，作为上个阶段异步任务的返回结果，被函数体内的变量 y 接收。因此，这一步的 value 属性，返回的就是2（变量 y 的值）。</h5><h4 id="Generator-函数内部还可以部署错误处理代码，捕获函数体外抛出的错误。"><a href="#Generator-函数内部还可以部署错误处理代码，捕获函数体外抛出的错误。" class="headerlink" title="Generator 函数内部还可以部署错误处理代码，捕获函数体外抛出的错误。"></a>Generator 函数内部还可以部署错误处理代码，捕获函数体外抛出的错误。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function* gen(x)&#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    var y = yield x + 2;</span><br><span class="line">  &#125; catch (e)&#123; </span><br><span class="line">    console.log(e);</span><br><span class="line">  &#125;</span><br><span class="line">  return y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var g = gen(1);</span><br><span class="line">g.next();</span><br><span class="line">g.throw（&apos;出错了&apos;）;</span><br><span class="line">// 出错了</span><br></pre></td></tr></table></figure>
+<h5 id="上面代码的最后一行，Generator-函数体外，使用指针对象的-throw-方法抛出的错误，可以被函数体内的-try-…-catch-代码块捕获。这意味着，出错的代码与处理错误的代码，实现了时间和空间上的分离，这对于异步编程无疑是很重要的。"><a href="#上面代码的最后一行，Generator-函数体外，使用指针对象的-throw-方法抛出的错误，可以被函数体内的-try-…-catch-代码块捕获。这意味着，出错的代码与处理错误的代码，实现了时间和空间上的分离，这对于异步编程无疑是很重要的。" class="headerlink" title="上面代码的最后一行，Generator 函数体外，使用指针对象的 throw 方法抛出的错误，可以被函数体内的 try … catch 代码块捕获。这意味着，出错的代码与处理错误的代码，实现了时间和空间上的分离，这对于异步编程无疑是很重要的。"></a>上面代码的最后一行，Generator 函数体外，使用指针对象的 throw 方法抛出的错误，可以被函数体内的 try … catch 代码块捕获。这意味着，出错的代码与处理错误的代码，实现了时间和空间上的分离，这对于异步编程无疑是很重要的。</h5><h3 id="Generator-函数的用法"><a href="#Generator-函数的用法" class="headerlink" title="Generator 函数的用法"></a>Generator 函数的用法</h3><h5 id="下面看看如何使用-Generator-函数，执行一个真实的异步任务。"><a href="#下面看看如何使用-Generator-函数，执行一个真实的异步任务。" class="headerlink" title="下面看看如何使用 Generator 函数，执行一个真实的异步任务。"></a>下面看看如何使用 Generator 函数，执行一个真实的异步任务。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var fetch = require(&apos;node-fetch&apos;);</span><br><span class="line"></span><br><span class="line">function* gen()&#123;</span><br><span class="line">  var url = &apos;https://api.github.com/users/github&apos;;</span><br><span class="line">  var result = yield fetch(url);</span><br><span class="line">  console.log(result.bio);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="上面代码中，Generator-函数封装了一个异步操作，该操作先读取一个远程接口，然后从-JSON-格式的数据解析信息。就像前面说过的，这段代码非常像同步操作，除了加上了-yield-命令。"><a href="#上面代码中，Generator-函数封装了一个异步操作，该操作先读取一个远程接口，然后从-JSON-格式的数据解析信息。就像前面说过的，这段代码非常像同步操作，除了加上了-yield-命令。" class="headerlink" title="上面代码中，Generator 函数封装了一个异步操作，该操作先读取一个远程接口，然后从 JSON 格式的数据解析信息。就像前面说过的，这段代码非常像同步操作，除了加上了 yield 命令。"></a>上面代码中，Generator 函数封装了一个异步操作，该操作先读取一个远程接口，然后从 JSON 格式的数据解析信息。就像前面说过的，这段代码非常像同步操作，除了加上了 yield 命令。</h5><h5 id="执行这段代码的方法如下。"><a href="#执行这段代码的方法如下。" class="headerlink" title="执行这段代码的方法如下。"></a>执行这段代码的方法如下。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var g = gen();</span><br><span class="line">var result = g.next();</span><br><span class="line"></span><br><span class="line">result.value.then(function(data)&#123;</span><br><span class="line">  return data.json();</span><br><span class="line">&#125;).then(function(data)&#123;</span><br><span class="line">  g.next(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="上面代码中，首先执行-Generator-函数，获取遍历器对象，然后使用-next-方法（第二行），执行异步任务的第一阶段。由于-Fetch-模块返回的是一个-Promise-对象，因此要用-then-方法调用下一个next-方法。"><a href="#上面代码中，首先执行-Generator-函数，获取遍历器对象，然后使用-next-方法（第二行），执行异步任务的第一阶段。由于-Fetch-模块返回的是一个-Promise-对象，因此要用-then-方法调用下一个next-方法。" class="headerlink" title="上面代码中，首先执行 Generator 函数，获取遍历器对象，然后使用 next 方法（第二行），执行异步任务的第一阶段。由于 Fetch 模块返回的是一个 Promise 对象，因此要用 then 方法调用下一个next 方法。"></a>上面代码中，首先执行 Generator 函数，获取遍历器对象，然后使用 next 方法（第二行），执行异步任务的第一阶段。由于 Fetch 模块返回的是一个 Promise 对象，因此要用 then 方法调用下一个next 方法。</h5><h5 id="虽然-Generator-函数将异步操作表示得很简洁，但是流程管理却不方便（即何时执行第一阶段、何时执行第二阶段）。"><a href="#虽然-Generator-函数将异步操作表示得很简洁，但是流程管理却不方便（即何时执行第一阶段、何时执行第二阶段）。" class="headerlink" title="虽然 Generator 函数将异步操作表示得很简洁，但是流程管理却不方便（即何时执行第一阶段、何时执行第二阶段）。"></a>虽然 Generator 函数将异步操作表示得很简洁，但是流程管理却不方便（即何时执行第一阶段、何时执行第二阶段）。</h5><h4 id="下篇文章介绍-async-的用法。"><a href="#下篇文章介绍-async-的用法。" class="headerlink" title="下篇文章介绍 async 的用法。"></a>下篇文章介绍 async 的用法。</h4>
+  </section>
+
+</article>
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2018 - 本站由 <a href="/">@Longbo Ma</a> 创建,
+        使用<a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>主题,
+        修改自<a href="http://github.com/onevcat/vno" target="_blank">Vno</a>
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+     
+</body>
+</html>
